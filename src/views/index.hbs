@@ -1,0 +1,28 @@
+<div id="box-register">
+	<h1>Adicionar usuário</h1>
+	<a href="list.html" class="box-register--uri">Listagem de usuários</a>
+
+	<form id="myForm" enctype="multipart/form-data" method="POST" action="{{formAction}}" formvalidate>
+		<input type="hidden" name="hiddenId" value="{{id}}">
+		{{#each fields as |field|}}
+			{{#ifEquals field.name 'btnSave'}}
+			    <input type="{{field.type}}" class="inputs" value="{{field.placeholder}}" name="{{field.name}}" id="{{field.id}}">
+			{{else}}
+				<input type="{{field.type}}" class="inputs" name="{{field.name}}" id="{{field.id}}" data-mask="{{field.mask}}" placeholder="{{field.placeholder}}" value="{{field.value}}" required>
+	
+				{{#ifEquals field.name 'uplImage'}}
+					{{#if field.value}}
+						<img src="{{field.value}}" alt="" id="renderPreview">
+					{{/if}}
+				{{/ifEquals}}
+
+				{{#ifEquals field.name 'txtAddress'}}
+					<div id="map"></div>
+				{{/ifEquals}}
+			{{/ifEquals}}
+		{{/each}}
+	</form>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJWL8MLV6D4jqDv4Dl17qNIVIPdEqTSwA&libraries=places" async defer></script>
+<script src="static/scripts/register.js" async defer></script>

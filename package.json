@@ -1,0 +1,41 @@
+{
+  "name": "MyProject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon ./bin/www"
+  },
+  "engines": {
+    "node": ">=8.7.0",
+    "npm": ">=5.4.2"
+  },
+  "author": "Wesley Amaro",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "connect-multiparty": "^2.1.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.13.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "del": "^3.0.0",
+    "express-handlebars": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-uglify": "^3.0.0",
+    "merge-stream": "^1.0.1"
+  }
+}

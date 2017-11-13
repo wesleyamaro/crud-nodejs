@@ -1,0 +1,38 @@
+<div id="box">
+	<h1>Listagem de usuários</h1>
+	<a href="/" class="box-register--uri">Cadastro de usuários</a>
+	
+	<table id="tableList">
+		<thead>
+			<tr>
+				<th>Nome completo</th>
+				<th>CPF</th>
+				<th>Telefone</th>
+				<th>Endereço</th>
+				<th>Imagem</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each users}}
+				<tr>
+					<td>{{name}}</td>
+					<td>{{cpf}}</td>
+					<td>{{phone}}</td>
+					<td>{{address}}</td>
+					<td><img src="{{thumb}}" width="50" height="50" /></td>
+					<td>
+						<a href="remove.html?id={{id}}" class="btn btnRemove">[remover]</button>
+						<a href="edit.html?id={{id}}" class="btn btnEdit">[editar]</button>
+					</td>
+				</tr>
+			{{else}}
+				<tr>
+					<td colspan="6" align="center">Nenhum usuário cadastrado.</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
+
+<script src="static/scripts/list.js"></script>

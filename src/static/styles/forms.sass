@@ -1,0 +1,41 @@
+input
+	font-family: 'Arial', Helvetica, Sans-Serif;
+
+input[type='text'],
+input[type='address'],
+input[type='file']
+	display: block;
+	color: #efeeed;
+	border: 1px solid #EFEEED;
+	border-radius: 3px;
+	padding: 12px;
+	font-size: 14px;
+	width: 100%;
+	box-sizing: border-box;
+
+	&:focus,
+	&:active
+		color: #333333;
+
+input[type='submit'], 
+input[type='button']
+	color: #fff;
+	background: rgb(0,200,179);
+	border: 0;
+	font-size: 14px;
+	padding: 13px;
+	cursor: pointer;
+	border-radius: 25px;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+
+	&:hover
+		opacity: 0.7;
+
+	&:disabled
+		color: #DDDCDC;
+		background-color: #F6F6F6;
+
+input.inputs
+	margin-top: 12px;

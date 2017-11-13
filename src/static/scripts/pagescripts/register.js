@@ -4,8 +4,7 @@
         $fileUp: document.querySelector('#uplImage'),
         $inputPhone: document.querySelector('#txtPhone'),
         $inputCPF: document.querySelector('#txtCPF'),
-        $inputSubmit: document.querySelector('#btnSave'),
-        myElementsArray: ''
+        $inputSubmit: document.querySelector('#btnSave')
     };
 
     function Register(){

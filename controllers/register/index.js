@@ -111,28 +111,44 @@ module.exports = {
 
 								console.log('Upload realizado com sucesso');
 								usr.thumb = '/uploads/thumb-' + usr.cpf + fileExt;
+
+								usr.save(function (err, usr) {
+									if (err) {
+										return res.json({
+											error: {
+												message: 'Houve um erro ao tentar atualizar usuário.'
+											}
+										});
+									}
+
+									return res.json({
+										success: {
+											message: 'Usuário alterado com sucesso.'
+										}
+									});
+								});
 							});
 						});  
 					});
 				} else {
 					usr.thumb = usr.thumb;
-				}
 
-				usr.save((err, usr) => {
-					if (err) {
+					usr.save(function (err, usr) {
+						if (err) {
+							return res.json({
+								error: {
+									message: 'Houve um erro ao tentar atualizar usuário.'
+								}
+							});
+						}
+
 						return res.json({
-							error: {
-								message: 'Houve um erro ao tentar atualizar usuário.'
+							success: {
+								message: 'Usuário alterado com sucesso.'
 							}
 						});
-					}
-
-					return res.json({
-						success: {
-							message: 'Usuário alterado com sucesso.'
-						}
 					});
-				});
+				}				
 			}
 		});
     },

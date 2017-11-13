@@ -7,13 +7,16 @@
 		{{#each fields as |field|}}
 			{{#ifEquals field.name 'btnSave'}}
 			    <input type="{{field.type}}" class="inputs" value="{{field.placeholder}}" name="{{field.name}}" id="{{field.id}}">
-			{{else}}
-				<input type="{{field.type}}" class="inputs" name="{{field.name}}" id="{{field.id}}" data-mask="{{field.mask}}" placeholder="{{field.placeholder}}" value="{{field.value}}" required>
-	
+			{{else}}	
 				{{#ifEquals field.name 'uplImage'}}
 					{{#if field.value}}
+						<input type="{{field.type}}" class="inputs" name="{{field.name}}" id="{{field.id}}" value="{{field.value}}">
 						<img src="{{field.value}}" alt="" id="renderPreview">
+					{{else}}
+						<input type="{{field.type}}" class="inputs" name="{{field.name}}" id="{{field.id}}" value="{{field.value}}" required>
 					{{/if}}
+				{{else}}
+					<input type="{{field.type}}" class="inputs" name="{{field.name}}" id="{{field.id}}" data-mask="{{field.mask}}" placeholder="{{field.placeholder}}" value="{{field.value}}" required>
 				{{/ifEquals}}
 
 				{{#ifEquals field.name 'txtAddress'}}

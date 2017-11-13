@@ -74,6 +74,17 @@
                     }
 
                     _this.buttonStatus(_private.$inputSubmit, 'enabled');
+                }, 
+                error: function(resp) {
+                    _ALERTS.create({
+                        id: 'alertsForm',
+                        type: 'error',
+                        message: resp.error.message,
+                        method: 'append',
+                        element: _private.$myForm
+                    });
+
+                    _this.buttonStatus(_private.$inputSubmit, 'enabled');
                 }
             });
         }, 

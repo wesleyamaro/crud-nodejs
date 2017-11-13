@@ -1,17 +1,29 @@
 # Test
-CRUD using NodeJs, Express and MongoDB. <br />
+CRUD using dynamic forms with NodeJs, Express and MongoDB. <br />
 
 ## Clone repository
 ```git clone https://github.com/WesleyAmaro/test.git```
 
-## Install dependencies of the project
+## Pre requirements
+Node: 8.7.0
+NPM: 5.4.2
+Gulp CLI: 3.9.1
+Gulp local: 3.9.1
+
+## Installing dependencies of the project
 ```npm install```
 
-## Install MongoDb
+## Installing MongoDb
 * https://www.mongodb.com/download-center?jmp=nav#community
 * https://robomongo.org/
 
-## Gulp
+## Creating Database
+Database name: myproject;
+
+If you do not know how to use it, check the instructions below:
+https://www.youtube.com/watch?v=Lj6vw4WnuyA
+
+## Running Gulp
 ```gulp```
 
 ## Running server

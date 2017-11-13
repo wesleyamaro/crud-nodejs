@@ -1,6 +1,10 @@
 (function Register(_AJAX, _GMAPS, _ALERTS, _IMAGEPREVIEW){
     var _private = {
         $myForm: document.querySelector('#myForm'),
+        $fileUp: document.querySelector('#uplImage'),
+        $inputPhone: document.querySelector('#txtPhone'),
+        $inputCPF: document.querySelector('#txtCPF'),
+        $inputSubmit: document.querySelector('#btnSave'),
         myElementsArray: ''
     };
 
@@ -34,10 +38,9 @@
 
         registerSubmit: function($el) {
             var _this = this;
-            var $btn = document.querySelector('#btnSave');
             var data = new FormData($el);
 
-            this.buttonStatus($btn, 'disabled');
+            this.buttonStatus(_private.$inputSubmit, 'disabled');
 
             if (document.querySelector('#alertsForm'))
                 _ALERTS.remove({id: '#alertsForm'})
@@ -71,7 +74,7 @@
                         });
                     }
 
-                    _this.buttonStatus($btn, 'enabled');
+                    _this.buttonStatus(_private.$inputSubmit, 'enabled');
                 }
             });
         }, 
@@ -86,20 +89,24 @@
         _installEvents: function() {
             var _this = this;
 
-            document.querySelector('#myForm').addEventListener('submit', function(e) {
+            _private.$myForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 _this.registerSubmit(this);
             });
 
-            document.querySelector('#uplImage').addEventListener('change', function(){
+            _private.$fileUp.addEventListener('change', function(){
                 _this.uploadPreview(this);
             });
 
-            document.querySelector('#txtPhone').addEventListener('keypress', function(e) {
+            _private.$inputPhone.maxLength = 11;
+            _private.$inputPhone.minLength = 10;
+            _private.$inputPhone.addEventListener('keypress', function(e) {
                 _this.validNumbersOnKeypress(e);
             });
 
-            document.querySelector('#txtCPF').addEventListener('keypress', function(e) {
+            _private.$inputCPF.maxLength = 11;
+            _private.$inputCPF.minLength = 11;
+            _private.$inputCPF.addEventListener('keypress', function(e) {
                 _this.validNumbersOnKeypress(e);
             });
             

@@ -2,7 +2,7 @@
 CRUD using dynamic forms with NodeJs, Express 4 and MongoDB.
 
 ## Clone repository
-```git clone https://github.com/WesleyAmaro/test.git```
+```git clone https://github.com/WesleyAmaro/crud-nodejs.git```
 
 ## Pre requirements
 Node: 8.7.0  
@@ -10,6 +10,7 @@ NPM: 5.4.2
 Gulp CLI: 3.9.1  
 Gulp local: 3.9.1  
 Mongodb
+Jasmine
 
 ## Installing dependencies of the project
 ```npm install```

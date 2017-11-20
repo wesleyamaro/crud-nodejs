@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./bin/www",
-    "test": "jasmine"
+    "test-jasmine": "jasmine",
+    "test-dev": "karma start",
+    "test": "karma start --single-run"
   },
   "engines": {
     "node": ">=8.7.0",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
+    "browserify": "^14.5.0",
     "del": "^3.0.0",
     "express-handlebars": "^3.0.0",
     "gulp": "^3.9.1",
@@ -39,6 +42,11 @@
     "gulp-sequence": "^0.4.6",
     "gulp-uglify": "^3.0.0",
     "jasmine": "^2.8.0",
-    "merge-stream": "^1.0.1"
+    "karma": "^1.7.1",
+    "karma-browserify": "^5.1.2",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "merge-stream": "^1.0.1",
+    "watchify": "^3.9.0"
   }
 }

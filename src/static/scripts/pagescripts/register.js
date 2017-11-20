@@ -1,4 +1,4 @@
-(function Register(_AJAX, _GMAPS, _ALERTS, _IMAGEPREVIEW){
+(function Register(_AJAX, _GMAPS, _ALERTS, _IMAGEPREVIEW, _INPUTHELPER){
     var _private = {
         $myForm: document.querySelector('#myForm'),
         $fileUp: document.querySelector('#uplImage'),
@@ -87,13 +87,6 @@
                     _this.buttonStatus(_private.$inputSubmit, 'enabled');
                 }
             });
-        }, 
-
-        validNumbersOnKeypress: function (e) {
-            var keycode = e.which;
-            if (!(e.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
-                e.preventDefault();
-            }
         },
 
         _installEvents: function() {
@@ -111,13 +104,13 @@
             _private.$inputPhone.maxLength = 11;
             _private.$inputPhone.minLength = 10;
             _private.$inputPhone.addEventListener('keypress', function(e) {
-                _this.validNumbersOnKeypress(e);
+                _INPUTHELPER.validNumbersOnKeypress(e);
             });
 
             _private.$inputCPF.maxLength = 11;
             _private.$inputCPF.minLength = 11;
             _private.$inputCPF.addEventListener('keypress', function(e) {
-                _this.validNumbersOnKeypress(e);
+                _INPUTHELPER.validNumbersOnKeypress(e);
             });
             
             var google = new _GMAPS({ inputFormID: 'txtAddress', divMapID: 'map' });
@@ -131,4 +124,4 @@
     }
 
     return new Register();
-})(MyProject.Ajax, MyProject.GoogleMapsAPI, MyProject.Alerts, MyProject.ImagePreview);
+})(MyProject.Ajax, MyProject.GoogleMapsAPI, MyProject.Alerts, MyProject.ImagePreview, MyProject.InputHelper);

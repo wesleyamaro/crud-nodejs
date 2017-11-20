@@ -103,15 +103,11 @@
 
             _private.$inputPhone.maxLength = 11;
             _private.$inputPhone.minLength = 10;
-            _private.$inputPhone.addEventListener('keypress', function(e) {
-                _INPUTHELPER.validNumbersOnKeypress(e);
-            });
+            _INPUTHELPER.validNumbersOnKeypress(_private.$inputPhone);
 
             _private.$inputCPF.maxLength = 11;
             _private.$inputCPF.minLength = 11;
-            _private.$inputCPF.addEventListener('keypress', function(e) {
-                _INPUTHELPER.validNumbersOnKeypress(e);
-            });
+            _INPUTHELPER.validNumbersOnKeypress(_private.$inputCPF);
             
             var google = new _GMAPS({ inputFormID: 'txtAddress', divMapID: 'map' });
 

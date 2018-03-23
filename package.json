@@ -5,9 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./bin/www",
-    "test-jasmine": "jasmine",
-    "test-dev": "karma start",
-    "test": "karma start --single-run"
+    "watch": "gulp"
   },
   "engines": {
     "node": ">=8.7.0",
@@ -22,7 +20,6 @@
     "express": "^4.16.2",
     "express-fileupload": "^0.3.0",
     "fs": "0.0.1-security",
-    "gulp-jasmine-browser": "^1.9.1",
     "mongoose": "^4.13.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1",
@@ -41,11 +38,6 @@
     "gulp-sass": "^3.1.0",
     "gulp-sequence": "^0.4.6",
     "gulp-uglify": "^3.0.0",
-    "jasmine": "^2.8.0",
-    "karma": "^1.7.1",
-    "karma-browserify": "^5.1.2",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-jasmine": "^1.1.0",
     "merge-stream": "^1.0.1",
     "watchify": "^3.9.0"
   }

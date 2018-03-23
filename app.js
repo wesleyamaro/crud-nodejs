@@ -1,16 +1,17 @@
 'use strict';
 
-const express    = require('express');
-const app        = express();
-const bodyParser = require('body-parser');
-const logger     = require('morgan');
-const exphbs     = require('express-handlebars');
-const mongoose   = require('mongoose');
-const router     = express.Router();
-const listCtrl   = require(__dirname + '/controllers/list');
-const registerCtrl = require(__dirname + '/controllers/register');
-const handlebarsHelpers = require(__dirname + '/handlebars-helpers');
-const fileUpload = require('express-fileupload');
+import express from 'express';
+import bodyParser from 'body-parser';
+import logger from 'morgan';
+import mongoose from 'mongoose';
+import fileUpload from 'express-fileupload';
+import exphbs from 'express-handlebars';
+import handlebarsHelpers from './handlebars/helpers';
+import { listCtrl } from './controllers/list';
+import { registerCtrl } from './controllers/register';
+
+const app = express();
+const router = express.Router();
 
 // Connect to database
 mongoose.connect('mongodb://localhost/myproject', {useMongoClient: true}, function(err) {
@@ -45,15 +46,15 @@ app.engine('hbs', exphbs({
 
 // Register Ctrl
 router.get('/', registerCtrl.view);
-router.post('/update.html', registerCtrl.update);
-router.post('/save.html', registerCtrl.save);
-router.get('/edit.html', registerCtrl.edit);
-router.get('/remove.html', registerCtrl.remove);
+router.post('/update', registerCtrl.update);
+router.post('/save', registerCtrl.save);
+router.get('/edit', registerCtrl.edit);
+router.get('/remove', registerCtrl.remove);
 
 // List Ctrl
-router.get('/list.html', listCtrl.view);
+router.get('/list', listCtrl.view);
 
 // Route
 app.use('/', router);
 
-module.exports = app;
+export default app;

@@ -1,12 +1,12 @@
 {
-  "name": "MyProject",
+  "name": "CRUD_NODEJS",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "dev": "npm-run-all --parallel watch:server watch:front",
     "watch:front": "gulp",
-    "watch:server": "NODE_ENV=development nodemon ./bin/www"
+    "watch:server": "NODE_ENV=development nodemon ./bin/www --exec \"babel-node --presets env\""
   },
   "engines": {
     "node": ">=8.7.0",
@@ -28,10 +28,12 @@
     "request": "^2.83.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "browserify": "^14.5.0",
     "del": "^3.0.0",
+    "eslint": "^4.19.1",
     "express-handlebars": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",

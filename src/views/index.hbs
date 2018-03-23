@@ -1,13 +1,13 @@
 <div id="box-register">
 	<h1>Adicionar usuário</h1>
-	<a href="list.html" class="box-register--uri">Listagem de usuários</a>
+	<a href="/list" class="box-register--uri">Listagem de usuários</a>
 
 	<form id="myForm" enctype="multipart/form-data" method="POST" action="{{formAction}}" formvalidate>
 		<input type="hidden" name="hiddenId" value="{{id}}">
 		{{#each fields as |field|}}
 			{{#ifEquals field.name 'btnSave'}}
 			    <input type="{{field.type}}" class="inputs" value="{{field.placeholder}}" name="{{field.name}}" id="{{field.id}}">
-			{{else}}	
+			{{else}}
 				{{#ifEquals field.name 'uplImage'}}
 					{{#if field.value}}
 						<input type="{{field.type}}" class="inputs" name="{{field.name}}" id="{{field.id}}" value="{{field.value}}">

@@ -1,7 +1,7 @@
 <div id="box">
 	<h1>Listagem de usuários</h1>
 	<a href="/" class="box-register--uri">Cadastro de usuários</a>
-	
+
 	<table id="tableList">
 		<thead>
 			<tr>
@@ -22,8 +22,8 @@
 					<td>{{address}}</td>
 					<td><img src="{{thumb}}" width="50" height="50" /></td>
 					<td>
-						<a href="remove.html?id={{id}}" class="btn btnRemove">[remover]</button>
-						<a href="edit.html?id={{id}}" class="btn btnEdit">[editar]</button>
+						<a href="/remove?id={{id}}" class="btn btnRemove">[remover]</button>
+						<a href="/edit?id={{id}}" class="btn btnEdit">[editar]</button>
 					</td>
 				</tr>
 			{{else}}

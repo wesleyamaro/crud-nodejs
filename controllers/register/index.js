@@ -1,28 +1,27 @@
-const projectPath = __dirname + '/../../';
-const request   = require('request');
-const templates = projectPath + 'src/views/';
-const User      = require(projectPath + 'models/user');
-const fs        = require('fs');
+import User from '../../models/user';
+import request from 'request';
+import fs from 'fs';
 
-module.exports = {
+const projectPath = __dirname + '/../../';
+const templates = projectPath + 'src/views/';
+
+export const registerCtrl = {
     view: function(req, res) {
-   		const url = "http://private-da937a-izitest1.apiary-mock.com/fields";
-		const formAction = 'save.html';
+		const url = "http://private-da937a-izitest1.apiary-mock.com/fields";
+		const formAction = 'save';
 
 		request({ url: url, json: true }, function (err, resp, body) {
-		    if (!err && resp.statusCode === 200) {
-		    	res.render(templates + 'index', {
+			if (!err && resp.statusCode === 200) {
+				res.render(templates + 'index', {
 					title: 'Home - MyProject',
 					fields: body,
 					formAction: formAction
 				});
-		    }
+			}
 		});
     },
 
     save: function(req, res) {
-    	let i;
-
 		if (req.files.uplImage) {
 			const inputFile = req.files.uplImage;
 			const mimetype = inputFile.mimetype;
@@ -54,7 +53,7 @@ module.exports = {
 					name: req.body.txtFullname,
 					cpf: req.body.txtCPF,
 					phone: req.body.txtPhone,
-					address: req.body.txtAddress, 
+					address: req.body.txtAddress,
 					thumb: '/uploads/thumb-' + req.body.txtCPF + fileExt
 				});
 
@@ -65,7 +64,7 @@ module.exports = {
 								message: err
 							}
 						});
-					}	
+					}
 
 					return res.json({
 						success: {
@@ -78,7 +77,7 @@ module.exports = {
     },
 
     update: function(req, res) {
-    	User.findById(req.body.hiddenId, (err, usr) => {  
+    	User.findById(req.body.hiddenId, (err, usr) => {
 			if (err) {
 				res.status(500).send(err);
 			} else {
@@ -128,7 +127,7 @@ module.exports = {
 									});
 								});
 							});
-						});  
+						});
 					});
 				} else {
 					usr.thumb = usr.thumb;
@@ -148,7 +147,7 @@ module.exports = {
 							}
 						});
 					});
-				}				
+				}
 			}
 		});
     },
@@ -156,12 +155,12 @@ module.exports = {
     edit: function(req, res) {
    		const url = "http://private-da937a-izitest1.apiary-mock.com/fields";
 		const queryStr = req.query.id;
-		const formAction = queryStr ? 'update.html' : 'save.html';
+		const formAction = queryStr ? 'update' : 'save';
 		let i;
 
 		request({ url: url, json: true }, function (err, resp, body) {
 		    if (!err && resp.statusCode === 200) {
-	    		User.findById(queryStr, function (err, usr) {  
+	    		User.findById(queryStr, function (err, usr) {
 					if (err) {
 						res.status(500).send(err)
 					} else {
@@ -205,7 +204,7 @@ module.exports = {
     	var getUserId = req.query.id;
     	var thumbSrc;
 
-    	User.findById(getUserId, function (err, usr) { 
+    	User.findById(getUserId, function (err, usr) {
     		thumbSrc = projectPath + usr.thumb;
     	});
 
@@ -218,7 +217,7 @@ module.exports = {
 				fs.unlink(thumbSrc, function (err) {
 				    if(err) return console.log(err);
 				    console.log('Arquivo deletado com sucesso');
-				});  
+				});
 			});
 
 			if (err) {

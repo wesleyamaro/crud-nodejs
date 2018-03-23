@@ -9,9 +9,7 @@ Node: 8.7.0
 NPM: 5.4.2  
 Gulp CLI: 3.9.1  
 Gulp local: 3.9.1  
-Mongodb  
-Jasmine  
-Karma
+Mongodb
 
 ## Installing dependencies of the project
 ```npm install```

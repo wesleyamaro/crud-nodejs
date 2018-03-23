@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon ./bin/www",
-    "watch": "gulp"
+    "dev": "npm-run-all --parallel watch:server watch:front",
+    "watch:front": "gulp",
+    "watch:server": "NODE_ENV=development nodemon ./bin/www"
   },
   "engines": {
     "node": ">=8.7.0",
@@ -23,6 +24,7 @@
     "mongoose": "^4.13.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1",
+    "npm-run-all": "^4.1.2",
     "request": "^2.83.0"
   },
   "devDependencies": {

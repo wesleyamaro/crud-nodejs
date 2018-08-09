@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "npm-run-all --parallel watch:server watch:front",
-    "watch:front": "gulp",
+    "watch:front": "./node_modules/gulp/bin/gulp.js",
     "watch:server": "NODE_ENV=development nodemon ./bin/www"
   },
   "engines": {

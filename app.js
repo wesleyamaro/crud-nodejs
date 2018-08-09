@@ -13,10 +13,12 @@ const handlebarsHelpers = require(__dirname + '/handlebars-helpers');
 const fileUpload = require('express-fileupload');
 
 // Connect to database
-mongoose.connect('mongodb://localhost/myproject', {useMongoClient: true}, function(err) {
-	if (err) throw 'MongoDB: Refused connection';
+mongoose.connect('mongodb://localhost/myproject', { useMongoClient: true})
+.then(function() {
 	console.log('MongoDB: Successfully connected');
-});
+}).catch(function(err) {
+	throw err
+})
 
 // Views
 app.use('/static', express.static(__dirname + '/assets'));
